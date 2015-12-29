@@ -1,0 +1,15 @@
+{
+    "parser": "babel-eslint",
+
+    "env": {
+        "node": true,
+        "es6": true
+    },
+
+    "rules": {
+        "no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
+        "vars-on-top": 0,
+        "semi": 0,
+        "no-undef": 2
+    }
+}
