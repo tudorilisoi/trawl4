@@ -24,6 +24,16 @@ require("babel-core/register")({
 
 var factory = require('./lib/factory');
 
+const LOG_PREFIX='CLI MAIN'
+const log = require('./lib/logger').prefix(LOG_PREFIX);
+const errlog = require('./lib/logger').error(LOG_PREFIX);
+
+function handleExit(){
+    log('finished')
+}
+
+process.on('exit', handleExit)
+
 //console.log(factory);
 
 var s = factory.getSession({
