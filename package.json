@@ -17,6 +17,8 @@
   "dependencies": {
     "debug": "^2.2.0",
     "lodash": "^3.10.1",
+    "mysql": "^2.0.0-alpha8",
+    "orm": "^2.1.29",
     "q": "^1.4.1"
   }
 }
