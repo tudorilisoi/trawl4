@@ -54,9 +54,8 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 
 var s = factory.getSession({
     domain: 'http://www.eradauti.ro',
+    mode:constants.CRAWL_MODE
 
-    //crawl mode
-    findAttrs: {state: constants.URI.STATUS_UNCRAWELD}
 });
 
 s.start();
