@@ -28,11 +28,24 @@ const LOG_PREFIX='CLI MAIN'
 const log = require('./lib/logger').prefix(LOG_PREFIX);
 const errlog = require('./lib/logger').error(LOG_PREFIX);
 
-function handleExit(){
-    log('finished')
+process.stdin.resume();//so the program will not close instantly
+
+function exitHandler(options, err) {
+    if (options.cleanup) log('cleanup');
+    if (err) console.log(err.stack);
+    log('exiting')
+    if (options.exit) process.exit();
 }
 
-process.on('exit', handleExit)
+//do something when app is closing
+process.on('exit', exitHandler.bind(null,{cleanup:true}));
+
+//catches ctrl+c event
+process.on('SIGINT', exitHandler.bind(null, {exit:true}));
+
+//catches uncaught exceptions
+process.on('uncaughtException', exitHandler.bind(null, {exit:true}));
+
 
 //console.log(factory);
 
