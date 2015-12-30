@@ -22,7 +22,8 @@ require("babel-core/register")({
     extensions: [".es6", ".es", ".jsx", ".js"]
 });
 
-var factory = require('./lib/factory');
+const factory = require('./lib/factory');
+const constants = require('./lib/constants')
 
 const LOG_PREFIX = 'CLI MAIN'
 const log = require('./lib/logger').prefix(LOG_PREFIX);
@@ -52,7 +53,10 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 //console.log(factory);
 
 var s = factory.getSession({
-    domain: 'http://www.eradauti.ro'
+    domain: 'http://www.eradauti.ro',
+
+    //crawl mode
+    findAttrs: {state: constants.URI.STATUS_UNCRAWELD}
 });
 
 s.start();
