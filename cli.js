@@ -53,7 +53,8 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 //console.log(factory);
 
 var s = factory.getSession({
-    domain: 'http://www.eradauti.ro',
+    //domain: 'http://www.eradauti.ro',
+    domain: 'http://www.culinar.ro',
     mode:constants.CRAWL_MODE
 
 });
