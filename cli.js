@@ -1,4 +1,5 @@
 //transpile at runtime
+//*
 require("babel-core/register")({
     // Optional ignore regex - if any filenames **do** match this regex then they
     // aren't compiled.
@@ -21,6 +22,7 @@ require("babel-core/register")({
     // and .js so you'll have to add them back if you want them to be used again.
     extensions: [".es6", ".es", ".jsx", ".js"]
 });
+//*/
 
 const factory = require('./lib/factory');
 const constants = require('./lib/constants')
@@ -53,9 +55,9 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 //console.log(factory);
 
 var s = factory.getSession({
-    domain: 'http://www.eradauti.ro',
-    startURI: 'http://v2.eradauti.ro/foto-radauti/mini-41942-vand-samsung-galaxy-s6-gold-56837eeae31f0.jpg',
-    //domain: 'http://www.culinar.ro',
+    //domain: 'http://www.eradauti.ro',
+    //startURI: 'http://v2.eradauti.ro/foto-radauti/mini-41942-vand-samsung-galaxy-s6-gold-56837eeae31f0.jpg',
+    domain: 'http://www.culinar.ro',
     mode:constants.CRAWL_MODE
 
 });

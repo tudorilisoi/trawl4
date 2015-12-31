@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
+var _ = require('lodash');
 
 var nodeModules = {};
 fs.readdirSync('node_modules')
@@ -15,10 +16,15 @@ module.exports = {
     entry: './cli.js',
     target: 'node',
     output: {
-        path: path.join(__dirname, 'runtime'),
-        filename: 'cli.js'
+        path: path.join(__dirname, 'dist'),
+        filename: 'cli.dist.js'
     },
-    externals: nodeModules,
+    node: { __dirname: true },
+    externals: _.extend({
+        'babel-core': 'commonjs babel-core',
+        'babel-loader': 'commonjs babel-loader',
+        classnames: 'commonjs classnames',
+    }, nodeModules),
     module: {
 
         loaders: [
@@ -26,8 +32,8 @@ module.exports = {
                 test: /\.js|\.tag$/,
                 exclude: /node_modules/,
                 include: /lib/,
-                loader: 'babel-loader',
-                query: {modules: 'common'}
+                loader: 'babel',
+                //query: {modules: 'common'}
             },
         ]
     },
