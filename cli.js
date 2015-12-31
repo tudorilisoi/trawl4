@@ -53,8 +53,9 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 //console.log(factory);
 
 var s = factory.getSession({
-    //domain: 'http://www.eradauti.ro',
-    domain: 'http://www.culinar.ro',
+    domain: 'http://www.eradauti.ro',
+    startURI: 'http://v2.eradauti.ro/foto-radauti/mini-41942-vand-samsung-galaxy-s6-gold-56837eeae31f0.jpg',
+    //domain: 'http://www.culinar.ro',
     mode:constants.CRAWL_MODE
 
 });
