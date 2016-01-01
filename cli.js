@@ -10,12 +10,14 @@ const errlog = require('./lib/logger').error(LOG_PREFIX);
 
 var child;
 function spawnProcess() {
+
+    //https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
     child = spawn('node', ['runner.js'],{
-        stdio:'inherit'
+        stdio:[process.stdin, process.stdout, process.stderr]
     })
 
     child.on('error', function (err) {
-        console.log('Failed to start child process.');
+        errlog('Failed to start child process.');
     });
 
     child.on('close', function (code, signal) {
