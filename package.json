@@ -24,6 +24,8 @@
     "mysql": "^2.0.0-alpha8",
     "node-libcurl": "^0.7.0",
     "orm": "^2.1.29",
+    "pretty-bytes": "^3.0.0",
+    "prettysize": "0.0.3",
     "q": "^1.4.1",
     "robots": "^0.9.4",
     "sleep": "^3.0.0",
