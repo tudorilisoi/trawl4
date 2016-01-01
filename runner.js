@@ -27,7 +27,7 @@ require("babel-core/register")({
 const factory = require('./lib/factory');
 const constants = require('./lib/constants')
 
-const LOG_PREFIX = 'CLI MAIN'
+const LOG_PREFIX = 'RUNNER'
 const log = require('./lib/logger').prefix(LOG_PREFIX);
 const errlog = require('./lib/logger').error(LOG_PREFIX);
 
@@ -38,6 +38,8 @@ function exitHandler(options, err) {
     if (err) {
         errlog(err, err.stack);
     }
+    const ee = require('./lib/eventBus');
+    ee.emit(constants.EV_STORAGE_REQUEST_DISCONNECT)
     log('exiting')
     if (options.exit) process.exit();
 }

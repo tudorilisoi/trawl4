@@ -1,3 +1,6 @@
+//cheerio or orm2 are causing memory leaks,
+// so restart the app when it self-closes with a special exit code
+
 var spawn = require('child_process').spawn
 
 const constants = require('./lib/constants')
