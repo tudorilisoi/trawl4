@@ -13,11 +13,11 @@ fs.readdirSync('node_modules')
     });
 
 module.exports = {
-    entry: './cli.js',
+    entry: './runner.js',
     target: 'node',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'cli.js'
+        filename: 'runner.js'
     },
     node: { __dirname: true },
     externals: _.extend({
