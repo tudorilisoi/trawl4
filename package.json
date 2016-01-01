@@ -1,13 +1,13 @@
 {
   "name": "trawl-4",
   "version": "1.0.0",
-  "description": "",
+  "description": "A full-fledged web crawler",
   "main": "index.js",
   "scripts": {
     "run": "node cli.js",
     "watch": "nodemon cli.js"
   },
-  "author": "",
+  "author": "Tudor Ilisoi <tudorilisoi@yahoo.com>",
   "license": "ISC",
   "devDependencies": {
     "babel": "^6.3.26",
@@ -25,7 +25,6 @@
     "node-libcurl": "^0.7.0",
     "orm": "^2.1.29",
     "pretty-bytes": "^3.0.0",
-    "prettysize": "0.0.3",
     "q": "^1.4.1",
     "robots": "^0.9.4",
     "sleep": "^3.0.0",
