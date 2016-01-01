@@ -17,7 +17,7 @@ module.exports = {
     target: 'node',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'cli.dist.js'
+        filename: 'cli.js'
     },
     node: { __dirname: true },
     externals: _.extend({
