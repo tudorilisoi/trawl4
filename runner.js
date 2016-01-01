@@ -40,6 +40,7 @@ function exitHandler(options, err) {
     }
     const ee = require('./lib/eventBus');
     ee.emit(constants.EV_STORAGE_REQUEST_DISCONNECT)
+    ee.emit(constants.EV_SHUTDOWN)
     log('exiting')
     if (options.exit) process.exit();
 }
