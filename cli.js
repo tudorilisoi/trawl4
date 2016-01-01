@@ -22,6 +22,8 @@ function spawnProcess() {
 
     child.on('close', function (code, signal) {
         log('CLI EXITED WITH', code)
+
+        //TODO start parsing when code is 200
         if (code === 100) {
             log('*** RESTART ***')
             setTimeout(spawnProcess,0)
