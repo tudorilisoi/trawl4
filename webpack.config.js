@@ -12,14 +12,6 @@ fs.readdirSync('node_modules')
         nodeModules[mod] = 'commonjs ' + mod;
     });
 
-var confMods = {}
-var confFiles = fs.readdirSync("config").map(function (module) {
-    var mod = module.replace(/\.js$/, '')
-    confMods[mod] = "commonjs " + mod
-})
-
-console.log(confMods)
-//process.exit()
 
 module.exports = {
     entry: './runner.js',
