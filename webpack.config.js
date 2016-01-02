@@ -20,6 +20,8 @@ module.exports = {
         filename: 'runner.js'
     },
     node: { __dirname: true },
+
+    //https://webpack.github.io/docs/library-and-externals.html
     externals: _.extend({
         'babel-core': 'commonjs babel-core',
         'babel-loader': 'commonjs babel-loader',
