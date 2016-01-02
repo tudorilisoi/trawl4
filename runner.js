@@ -71,21 +71,11 @@ if (!preset) {
     process.exit();
 }
 
-//require.context = require.context || function (arg) {
-//        //require('./config/' + arg)
-//        return require('./' + arg)
-//    }
-//var ctx = require.context(
-//    "./config", // context folder
-//    true, // include subdirectories
-//    /\.js$/ // RegExp
-//)
 
-var ctx = require;
 
 try {
     //var conf = require('./config/' + preset)
-    var conf = ctx("./config/" + preset + '.js')
+    var conf = require("./config/" + preset + '.js')
 } catch (e) {
     errlog(e, e.stack)
     process.exit();

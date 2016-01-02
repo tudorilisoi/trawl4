@@ -31,7 +31,7 @@ module.exports = {
 
     module: {
 
-        //ignore unknown dynamic require
+        //ignore unknown dynamic require for config files
         unknownContextRegExp: /$^/,
         unknownContextCritical: false,
 
