@@ -60,10 +60,34 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 
 var argv = require('yargs').argv;
 var preset = argv.preset;
+
+if (!preset) {
+    log(
+        `
+    Usage: node cli.js --preset=[preset].
+    Presets are stored in ./config, no extension needed
+
+    `)
+    process.exit();
+}
+
+//require.context = require.context || function (arg) {
+//        //require('./config/' + arg)
+//        return require('./' + arg)
+//    }
+//var ctx = require.context(
+//    "./config", // context folder
+//    true, // include subdirectories
+//    /\.js$/ // RegExp
+//)
+
+var ctx = require;
+
 try {
-    var conf = require(`./config/${preset}`)
+    //var conf = require('./config/' + preset)
+    var conf = ctx("./config/" + preset + '.js')
 } catch (e) {
-    errlog(e, e, stack)
+    errlog(e, e.stack)
     process.exit();
 }
 
@@ -74,15 +98,15 @@ var mergedConf = Object.assign({
 var s = factory.getSession(mergedConf)
 
 /*
-var s = factory.getSession({
-    //domain: 'http://retete.unica.ro',
-    //domain: 'http://www.eradauti.ro',
-    domain: 'http://www.gustos.ro',
-    //startURI: 'http://v2.eradauti.ro/foto-radauti/mini-41942-vand-samsung-galaxy-s6-gold-56837eeae31f0.jpg',
-    //domain: 'http://www.culinar.ro',
-    mode: constants.CRAWL_MODE
+ var s = factory.getSession({
+ //domain: 'http://retete.unica.ro',
+ //domain: 'http://www.eradauti.ro',
+ domain: 'http://www.gustos.ro',
+ //startURI: 'http://v2.eradauti.ro/foto-radauti/mini-41942-vand-samsung-galaxy-s6-gold-56837eeae31f0.jpg',
+ //domain: 'http://www.culinar.ro',
+ mode: constants.CRAWL_MODE
 
-});
-//*/
+ });
+ //*/
 
 s.start();

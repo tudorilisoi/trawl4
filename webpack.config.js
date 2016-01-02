@@ -12,6 +12,15 @@ fs.readdirSync('node_modules')
         nodeModules[mod] = 'commonjs ' + mod;
     });
 
+var confMods = {}
+var confFiles = fs.readdirSync("config").map(function (module) {
+    var mod = module.replace(/\.js$/, '')
+    confMods[mod] = "commonjs " + mod
+})
+
+console.log(confMods)
+//process.exit()
+
 module.exports = {
     entry: './runner.js',
     target: 'node',
@@ -19,7 +28,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'runner.js'
     },
-    node: { __dirname: true },
+    node: {__dirname: true},
 
     //https://webpack.github.io/docs/library-and-externals.html
     externals: _.extend({
@@ -27,7 +36,12 @@ module.exports = {
         'babel-loader': 'commonjs babel-loader',
         classnames: 'commonjs classnames',
     }, nodeModules),
+
     module: {
+
+        //ignore unknown dynamic require
+        unknownContextRegExp: /$^/,
+        unknownContextCritical: false,
 
         loaders: [
             {
