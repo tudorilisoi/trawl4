@@ -12,7 +12,7 @@ var child;
 function spawnProcess() {
 
     //https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
-    child = spawn('node', ['--expose-gc','dist/runner.js'],{
+    child = spawn('node', ['--expose-gc','runner.js'],{
         stdio:[process.stdin, process.stdout, process.stderr]
     })
 
