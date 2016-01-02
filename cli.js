@@ -11,9 +11,12 @@ const errlog = require('./lib/logger').error(LOG_PREFIX);
 var child;
 function spawnProcess() {
 
+    //log(process.argv)
+    //process.exit();
+
     //https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
-    child = spawn('node', ['--expose-gc','runner.js'],{
-        stdio:[process.stdin, process.stdout, process.stderr]
+    child = spawn('node', ['--expose-gc', 'runner.js'].concat(process.argv.slice(2)), {
+        stdio: [process.stdin, process.stdout, process.stderr]
     })
 
     child.on('error', function (err) {
@@ -26,7 +29,7 @@ function spawnProcess() {
         //TODO start parsing when code is 200
         if (code === 100) {
             log('*** RESTART ***')
-            setTimeout(spawnProcess,0)
+            setTimeout(spawnProcess, 0)
         }
     })
     //child.stdout.on('data', function (data) {

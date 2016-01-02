@@ -24,6 +24,7 @@ require("babel-core/register")({
 });
 //*/
 
+const yargs = require('yargs');
 const factory = require('./lib/factory');
 const constants = require('./lib/constants')
 
@@ -57,14 +58,31 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 
 //console.log(factory);
 
+var argv = require('yargs').argv;
+var preset = argv.preset;
+try {
+    var conf = require(`./config/${preset}`)
+} catch (e) {
+    errlog(e, e, stack)
+    process.exit();
+}
+
+var mergedConf = Object.assign({
+    mode: constants.CRAWL_MODE
+}, conf)
+
+var s = factory.getSession(mergedConf)
+
+/*
 var s = factory.getSession({
     //domain: 'http://retete.unica.ro',
     //domain: 'http://www.eradauti.ro',
     domain: 'http://www.gustos.ro',
     //startURI: 'http://v2.eradauti.ro/foto-radauti/mini-41942-vand-samsung-galaxy-s6-gold-56837eeae31f0.jpg',
     //domain: 'http://www.culinar.ro',
-    mode:constants.CRAWL_MODE
+    mode: constants.CRAWL_MODE
 
 });
+//*/
 
 s.start();
