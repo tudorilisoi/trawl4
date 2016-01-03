@@ -64,13 +64,12 @@ var preset = argv.preset;
 if (!preset) {
     log(
         `
-    Usage: node cli.js --preset=[preset].
+    Usage: node cli.js --preset=presetName [reset].
     Presets are stored in ./config, no extension needed
 
     `)
     process.exit();
 }
-
 
 
 try {
@@ -84,6 +83,10 @@ try {
 var mergedConf = Object.assign({
     mode: constants.CRAWL_MODE
 }, conf)
+
+if (argv.reset) {
+    mergedConf.reset = true;
+}
 
 var s = factory.getSession(mergedConf)
 
