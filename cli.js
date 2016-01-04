@@ -9,6 +9,7 @@ const log = require('./lib/logger').prefix(LOG_PREFIX);
 const errlog = require('./lib/logger').error(LOG_PREFIX);
 
 var child;
+var timeout;
 function spawnProcess() {
 
     //log(process.argv)
@@ -19,8 +20,9 @@ function spawnProcess() {
         stdio: [process.stdin, process.stdout, process.stderr]
     })
 
+    var handled = false;
     child.on('error', function (err) {
-        errlog('Failed to start child process.');
+        errlog('Failed to start child process.', err, err.stack);
     });
 
     child.on('close', function (code, signal) {
@@ -29,7 +31,8 @@ function spawnProcess() {
         //TODO start parsing when code is 200
         if (code === 100) {
             log('*** RESTART ***')
-            setTimeout(spawnProcess, 0)
+            clearTimeout(timeout)
+            timeout = setTimeout(spawnProcess, 500)
         }
     })
     //child.stdout.on('data', function (data) {
