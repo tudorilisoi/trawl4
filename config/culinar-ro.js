@@ -1,6 +1,16 @@
 module.exports = {
     domain: 'http://www.culinar.ro',
-    excludeRegexArr: [],
+    crawlDelay: 3000,
+    includeRegexArr: [
+        /^$/, //base URI
+        /^\/retete\//,
+        ///^\/recipe\/gallery\//, //pics, include them only when parsing
+
+    ],
+    excludeRegexArr: [
+        /^\/retete\/bauturi\//,
+
+    ],
     parserClasses: {
         regexArr: [],
         chunkName: 'title',
