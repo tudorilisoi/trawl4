@@ -42,12 +42,18 @@ function exitHandler(options, err) {
     const ee = require('./lib/eventBus');
     ee.emit(constants.EV_STORAGE_REQUEST_DISCONNECT)
     ee.emit(constants.EV_SHUTDOWN)
-    log('exiting')
-    if (options.exit) process.exit();
+    log('exiting...')
+    if (options.exit) {
+
+     //wait for shotudown, then exit
+     setTimeout(()=>{
+         process.exit()
+     },1000)
+    }
 }
 
 //do something when app is closing
-process.on('exit', exitHandler.bind(null, {cleanup: true}));
+//process.on('exit', exitHandler.bind(null, {cleanup: true}));
 
 //catches ctrl+c event
 process.on('SIGINT', exitHandler.bind(null, {exit: true}));

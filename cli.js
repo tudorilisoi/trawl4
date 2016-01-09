@@ -35,6 +35,15 @@ function spawnProcess() {
             timeout = setTimeout(spawnProcess, 500)
         }
     })
+
+    //catches ctrl+c event
+    process.on('SIGINT', function () {
+        if (child) {
+            log('*** CLOSE CHILD PROCESS ***')
+            child.kill('SIGINT')
+        }
+    });
+
     //child.stdout.on('data', function (data) {
     //    console.log(data.toString());
     //});
