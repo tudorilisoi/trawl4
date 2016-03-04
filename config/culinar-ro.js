@@ -9,6 +9,7 @@ module.exports = {
     ],
     excludeRegexArr: [
         /^\/retete\/bauturi\//,
+        /recipes=/,
 
     ],
     parserClasses: {
