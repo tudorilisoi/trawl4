@@ -1,6 +1,6 @@
 # README #
 
-### TRAWL4: A low memory footprint web crawler with a MySQL backend ###
+### TRAWL4-alpha: A low memory footprint web crawler with a MySQL backend ###
 
 
 ### How do I get set up? ###
@@ -32,3 +32,12 @@ Now run the crawler with:
 npm run demo
 
 ```
+
+You can hit Ctrl+C to stop crawling and wait about 2 seconds for the script to finish the exit routines.
+
+Running `npm run demo` once more will resume the crawling.
+
+The script will auto-restart itself every 100 URLs to workaround a memory leak in cheerio
+
+See lib/constants.js for more settings regarding crawl delay, in-memory LRU cache size, user agent and others
+
