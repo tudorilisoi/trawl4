@@ -1,11 +1,13 @@
 # README #
 
-### What is this repository for? ###
+### A low memory footprint web crawler with a MySQL backend ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
 
+```
+npm i
+mkdir runtime
+node runner.js  --preset culinar-ro
 
+```
