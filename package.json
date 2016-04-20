@@ -4,7 +4,7 @@
   "description": "A full-fledged web crawler",
   "main": "index.js",
   "scripts": {
-    "demo": "mkdir runtime 2>&1; node runner.js  --preset culinar-ro",
+    "demo": "mkdir runtime; node runner.js  --preset culinar-ro",
     "run": "node cli.js",
     "watch": "nodemon cli.js"
   },
