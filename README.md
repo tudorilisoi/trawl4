@@ -41,3 +41,12 @@ The script will auto-restart itself every 100 URLs to workaround a memory leak i
 
 See lib/constants.js for more settings regarding crawl delay, in-memory LRU cache size, user agent and others
 
+
+### Be a good citizen
+
+Please don't abuse the demo configuration, write your own (for example `lib/config/my_config.js`) in  and run it with
+
+```
+node runner.js  --preset my_config
+```
+
