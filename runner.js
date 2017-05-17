@@ -80,8 +80,12 @@ if (!preset) {
 
 
 try {
-    //var conf = require('./config/' + preset)
-    var conf = require("./config/" + preset + '.js')
+    var conf
+    if (/\//.test(preset)) { //if there's a slash in preset path
+        conf = require(preset)
+    } else { //look in config
+        conf = require("./config/" + preset + '.js')
+    }
 } catch (e) {
     errlog(e, e.stack)
     process.exit();

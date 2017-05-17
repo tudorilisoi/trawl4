@@ -22,7 +22,7 @@
     "lru-cache": "^4.0.0",
     "moment": "^2.10.6",
     "mysql": "^2.0.0-alpha8",
-    "node-libcurl": "^0.7.0",
+    "node-libcurl": "latest",
     "orm": "^2.1.29",
     "pretty-bytes": "^3.0.0",
     "q": "^1.4.1",
