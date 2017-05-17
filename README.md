@@ -64,7 +64,7 @@ You can hit Ctrl+C to stop crawling and wait about 2 seconds for the script to f
 
 Running `npm run demo` once more will resume the crawling.
 
-The script will auto-restart itself every 100 URLs to workaround a memory leak in cheerio
+The script will auto-restart itself every 100 URLs to work around a memory leak in cheerio
 
 See lib/constants.js for more settings regarding crawl delay, in-memory LRU cache size, user agent and others
 
