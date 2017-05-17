@@ -1,6 +1,6 @@
 {
   "name": "trawl-4",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A full-fledged node.js web crawler with a MySQL backend",
   "keywords": [
     "low memory crawler",
@@ -14,7 +14,6 @@
     "MySQL",
     "es6"
   ],
-
   "repository": {
     "type": "git",
     "url": "https://github.com/tudorilisoi/trawl4.git"
