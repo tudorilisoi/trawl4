@@ -3,6 +3,25 @@
 ### TRAWL4-alpha: A low memory footprint web crawler with a MySQL backend ###
 
 
+### Overview
+
+This is a CLI tool for recursively crawling websites. 
+
+It:
+  
+ - discovers links and recursively follows them 
+ - adds crawled pages (URL, content) to a MySQL database for further processing  
+
+Features:
+ 
+ - recursive, suitable for crawling/spidering an entire website/domain
+ - respects the robots.txt standard
+ - holds an in-memory LRU for discovered links so the DB is not hit hard
+ - auto-restarts session to avoid memory leaks
+ - uses about 240MB RAM per typical crawl session
+ 
+
+
 ### How do I get set up? ###
 
 Clone this repository and follow these simple steps:
@@ -57,4 +76,3 @@ Please don't abuse the demo configuration, write your own (for example `./config
 ```
 node runner.js  --preset my_config
 ```
-
