@@ -52,7 +52,7 @@ See lib/constants.js for more settings regarding crawl delay, in-memory LRU cach
 
 ### Be a good citizen
 
-Please don't abuse the demo configuration, write your own (for example `lib/config/my_config.js`) in  and run it with
+Please don't abuse the demo configuration, write your own (for example `./config/my_config.js`) in  and run it with
 
 ```
 node runner.js  --preset my_config
