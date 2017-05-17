@@ -24,6 +24,14 @@ npm i
 
 ```
 
+or
+
+```
+yarn 
+
+```
+
+
 You're set!
 
 Now run the crawler with:
