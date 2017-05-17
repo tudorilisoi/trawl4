@@ -15,7 +15,7 @@ It:
 Features:
  
  - recursive, suitable for crawling/spidering an entire website/domain
- - respects the robots.txt standard
+ - respects the robots.txt standard <https://en.wikipedia.org/wiki/Robots_exclusion_standard>
  - holds an in-memory LRU for discovered links so the DB is not hit hard
  - auto-restarts session to avoid memory leaks
  - uses about 240MB RAM per typical crawl session
