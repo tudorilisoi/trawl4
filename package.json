@@ -3,7 +3,9 @@
   "version": "1.0.3",
   "description": "A full-fledged node.js web crawler with a MySQL backend",
   "keywords": [
-    "low memory crawler",
+    "node cli crawler",
+    "node cli scraper",
+    "node low memory crawler",
     "web spider",
     "spider",
     "crawler",
