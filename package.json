@@ -1,8 +1,25 @@
 {
   "name": "trawl-4",
   "version": "1.0.0",
-  "description": "A full-fledged web crawler",
-  "main": "index.js",
+  "description": "A full-fledged node.js web crawler with a MySQL backend",
+  "keywords": [
+    "low memory crawler",
+    "web spider",
+    "spider",
+    "crawler",
+    "web crawler",
+    "scraper",
+    "scraping",
+    "data mining",
+    "MySQL",
+    "es6"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tudorilisoi/trawl4.git"
+  },
+  "bin": "./runner.js",
   "scripts": {
     "demo": "mkdir runtime; node runner.js  --preset culinar-ro",
     "run": "node cli.js",
