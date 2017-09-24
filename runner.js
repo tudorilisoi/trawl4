@@ -63,10 +63,10 @@ function exitHandler(options, err) {
 process.on('exit', exitHandler.bind(null, {cleanup: true}));
 
 //catches ctrl+c event
-process.on('SIGINT', exitHandler.bind(null, {exit: true}));
+process.on('SIGINT', exitHandler.bind(null, {exit: true, cleanup: true}));
 
 //catches uncaught exceptions
-process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
+process.on('uncaughtException', exitHandler.bind(null, {exit: true, cleanup: true}));
 
 
 //console.log(factory);
