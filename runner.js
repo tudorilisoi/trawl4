@@ -34,7 +34,12 @@ const errlog = require('./lib/logger').error(LOG_PREFIX);
 
 process.stdin.resume();//so the program will not close instantly
 
+var _didExit = false;
+
 function exitHandler(options, err) {
+    if(_didExit){
+        return
+    }
     if (options.cleanup) {
         log('cleanup...');
         const ee = require('./lib/eventBus');
@@ -45,6 +50,7 @@ function exitHandler(options, err) {
         errlog(err, err.stack);
     }
     if (options.exit) {
+        _didExit = true
         log('exiting...')
         //wait for shotudown, then exit
         setTimeout(()=> {
