@@ -10,13 +10,19 @@ const errlog = require('./lib/logger').error(LOG_PREFIX);
 
 var child;
 var timeout;
-function spawnProcess() {
+
+function spawnProcess(isRespawned) {
 
     //log(process.argv)
     //process.exit();
 
     //https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
-    child = spawn('node', ['--expose-gc', 'runner.js'].concat(process.argv.slice(2)), {
+    var args = process.argv.slice(2)
+    if(isRespawned){
+        args.push('--respawned')
+    }
+
+    child = spawn('node', ['--expose-gc', 'runner.js'].concat(args), {
         stdio: [process.stdin, process.stdout, process.stderr]
     })
 
@@ -32,7 +38,9 @@ function spawnProcess() {
         if (code === 100) {
             log('*** RESTART ***')
             clearTimeout(timeout)
-            timeout = setTimeout(spawnProcess, 500)
+            timeout = setTimeout(function () {
+                spawnProcess(true)
+            }, 500)
         }
     })
 

@@ -68,6 +68,7 @@ process.on('uncaughtException', exitHandler.bind(null, {exit: true}));
 var argv = require('yargs').argv;
 var preset = argv.preset;
 
+
 if (!preset) {
     log(
         `
@@ -97,6 +98,10 @@ var mergedConf = Object.assign({
 
 if (argv.reset) {
     mergedConf.reset = true;
+}
+
+if (argv.respawned) {
+    mergedConf.respawned = true;
 }
 
 var s = factory.getSession(mergedConf)
