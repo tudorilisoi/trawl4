@@ -47,6 +47,7 @@
     "pretty-bytes": "^3.0.0",
     "q": "^1.4.1",
     "robots": "^0.9.4",
+    "sitemap-stream-parser": "^1.2.2",
     "sleep": "^3.0.0",
     "webpack": "^1.12.9",
     "yargs": "^3.31.0"
