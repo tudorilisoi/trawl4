@@ -46,6 +46,7 @@
     "orm": "^2.1.29",
     "pretty-bytes": "^3.0.0",
     "q": "^1.4.1",
+    "restore-cursor": "^2.0.0",
     "robots": "^0.9.4",
     "sitemap-stream-parser": "^1.2.2",
     "sleep": "^3.0.0",

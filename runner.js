@@ -37,7 +37,7 @@ process.stdin.resume();//so the program will not close instantly
 var _didExit = false;
 
 function exitHandler(options, err) {
-    if(_didExit){
+    if (_didExit) {
         return
     }
     if (options.cleanup) {
@@ -53,7 +53,8 @@ function exitHandler(options, err) {
         _didExit = true
         log('exiting...')
         //wait for shotudown, then exit
-        setTimeout(()=> {
+        setTimeout(() => {
+            process.stdin.end()
             process.exit()
         }, 1000)
     }
