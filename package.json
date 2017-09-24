@@ -1,6 +1,6 @@
 {
   "name": "trawl-4",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A full-fledged node.js web crawler with a MySQL backend",
   "keywords": [
     "node cli crawler",
