@@ -11,6 +11,8 @@ module.exports = {
         /^\/retete\/bauturi\//,
         /^\/retete\/culinare\?pagina=/, //redundant
         /recipes=/,
+        /\?picture=/,
+        /\?utm_campaign=/,
         /filterdata=/,
 
     ],

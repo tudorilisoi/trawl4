@@ -31,7 +31,7 @@ function spawnProcess(isRespawned) {
         errlog('Failed to start child process.', err, err.stack);
     });
 
-    child.on('close', function (code, signal) {
+    function _onClose(code, signal) {
         log('CLI EXITED WITH', code)
 
         //TODO start parsing when code is 200
@@ -42,10 +42,13 @@ function spawnProcess(isRespawned) {
                 spawnProcess(true)
             }, 500)
         }else{
+            child.removeListener('close', _onClose)
             restoreCursor();
             process.stdin.end()
         }
-    })
+    }
+    
+    child.on('close', _onClose )
 
     //catches ctrl+c event
     process.on('SIGINT', function () {
