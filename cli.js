@@ -51,12 +51,7 @@ function spawnProcess(isRespawned) {
     child.on('close', _onClose )
 
     //catches ctrl+c event
-    process.on('SIGINT', function () {
-        if (child) {
-            log('*** CLOSE CHILD PROCESS ***')
-            child.kill('SIGINT')
-        }
-    });
+
 
     //child.stdout.on('data', function (data) {
     //    console.log(data.toString());
@@ -68,5 +63,11 @@ function spawnProcess(isRespawned) {
 
 }
 
+process.on('SIGINT', function () {
+    if (child) {
+        log('*** CLOSE CHILD PROCESS ***')
+        child.kill('SIGINT')
+    }
+});
 
 spawnProcess()
