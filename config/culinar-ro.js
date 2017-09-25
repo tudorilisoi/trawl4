@@ -1,5 +1,5 @@
 module.exports = {
-    domain: 'http://www.culinar.ro',
+    domain: 'https://www.culinar.ro',
     crawlDelay: 3000,
     includeRegexArr: [
         /^$/, //base URI
