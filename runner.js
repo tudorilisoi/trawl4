@@ -1,9 +1,18 @@
 //transpile at runtime
 //*
-require("babel-core/register")({
+// require("babel-polyfill")
+require("babel-register")({
+
+    cache: false,
+
+    "presets": [
+        "node6-es6",
+        // "es2015",
+    ],
+
     // Optional ignore regex - if any filenames **do** match this regex then they
     // aren't compiled.
-    // ignore: /regex/,
+    ignore: /node_modules/,
 
     // Ignore can also be specified as a function.
     // ignore: function(filename) {
