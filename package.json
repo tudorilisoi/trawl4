@@ -46,6 +46,7 @@
     "q": "^1.4.1",
     "restore-cursor": "^2.0.0",
     "robots": "^0.9.4",
+    "sanitize-html": "^1.14.1",
     "sitemap-stream-parser": "^1.2.2",
     "sleep": "^3.0.0",
     "webpack": "^1.12.9",
