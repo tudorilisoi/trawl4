@@ -23,7 +23,7 @@
   "bin": "./runner.js",
   "scripts": {
     "demo": "mkdir runtime; node runner.js  --preset culinar-ro",
-    "run": "node --harmony cli.js",
+    "run": "node --harmony --expose-gc cli.js",
     "watch": "nodemon cli.js"
   },
   "author": "Tudor Ilisoi <tudorilisoi@yahoo.com>",

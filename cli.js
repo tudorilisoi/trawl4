@@ -18,11 +18,11 @@ function spawnProcess(isRespawned) {
 
     //https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
     var args = process.argv.slice(2)
-    if(isRespawned){
+    if (isRespawned) {
         args.push('--respawned')
     }
 
-    child = spawn('node', ['--expose-gc', 'runner.js'].concat(args), {
+    child = spawn('node', ['--expose-gc', '--optimize_for_size', 'runner.js'].concat(args), {
         stdio: [process.stdin, process.stdout, process.stderr]
     })
 
@@ -41,14 +41,14 @@ function spawnProcess(isRespawned) {
             timeout = setTimeout(function () {
                 spawnProcess(true)
             }, 500)
-        }else{
+        } else {
             child.removeListener('close', _onClose)
             restoreCursor();
             process.stdin.end()
         }
     }
-    
-    child.on('close', _onClose )
+
+    child.on('close', _onClose)
 
     //catches ctrl+c event
 
