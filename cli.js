@@ -22,7 +22,9 @@ function spawnProcess(isRespawned) {
         args.push('--respawned')
     }
 
-    child = spawn('node', ['--expose-gc', '--optimize_for_size', 'runner.js'].concat(args), {
+    child = spawn('node', ['--expose-gc',
+        // '--inspect',
+        '--optimize_for_size', 'runner.js'].concat(args), {
         stdio: [process.stdin, process.stdout, process.stderr]
     })
 
