@@ -116,8 +116,8 @@ if (argv.reset) {
     mergedConf.reset = true;
 }
 
-if (argv.respawned) {
-    mergedConf.respawned = true;
+if (argv.process) {
+    mergedConf.mode = constants.PROCESS_MODE;
 }
 
 var s = factory.getSession(mergedConf)
