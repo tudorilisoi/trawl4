@@ -74,5 +74,5 @@ See lib/constants.js for more settings regarding crawl delay, in-memory LRU cach
 Please don't abuse the demo configuration, write your own (for example `./config/my_config.js`) in  and run it with
 
 ```
-node runner.js  --preset my_config
+node cli.js  --preset my_config
 ```
